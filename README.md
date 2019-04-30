@@ -63,3 +63,4 @@ Currently have logging and SSL disabled.
 | cf_status             | Current status of the distribution                |
 | s3_bucket             | Name of S3 bucket                                 |
 | s3_bucket_domain_name | Domain of S3 bucket                               |
+| s3_bucket_arn         | ARN of S3 bucket                                  |
