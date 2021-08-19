@@ -43,73 +43,87 @@ variable "use_regional_s3_endpoint" {
 }
 
 variable "origin_bucket" {
+  type        = string
   default     = ""
   description = "Name of S3 bucket"
 }
 
 variable "origin_path" {
   # http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginPath
+  type        = string
   description = "An optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin. It must begin with a /. Do not add a / at the end of the path."
   default     = ""
 }
 
 variable "origin_force_destroy" {
-  default     = "false"
+  type        = bool
+  default     = false
   description = "Delete all objects from the bucket  so that the bucket can be destroyed without error (e.g. `true` or `false`)"
 }
 
 variable "bucket_domain_format" {
+  type        = string
   default     = "%s.s3.amazonaws.com"
   description = "Format of bucket domain name"
 }
 
 variable "compress" {
-  default     = "false"
+  type        = bool
+  default     = false
   description = "Compress content for web requests that include Accept-Encoding: gzip in the request header"
 }
 
 variable "is_ipv6_enabled" {
-  default     = "true"
+  type        = bool
+  default     = true
   description = "State of CloudFront IPv6"
 }
 
 variable "default_root_object" {
+  type        = string
   default     = "index.html"
   description = "Object that CloudFront return when requests the root URL"
 }
 
 variable "comment" {
+  type        = string
   default     = "Managed by Terraform"
   description = "Comment for the origin access identity"
 }
 
 variable "log_include_cookies" {
-  default     = "false"
+  type        = bool
+  default     = false
   description = "Include cookies in access logs"
 }
 
 variable "log_prefix" {
+  type        = string
   default     = ""
   description = "Path of logs in S3 bucket"
 }
 
 variable "log_standard_transition_days" {
+  type        = number
   description = "Number of days to persist in the standard storage tier before moving to the glacier tier"
   default     = "30"
 }
 
 variable "log_glacier_transition_days" {
+  type        = number
   description = "Number of days after which to move the data to the glacier storage tier"
   default     = "60"
 }
 
 variable "log_expiration_days" {
+  type        = number
   description = "Number of days after which to expunge the objects"
   default     = "90"
 }
 
 variable "forward_query_string" {
-  default     = "false"
+  type        = bool
+  default     = false
   description = "Forward query strings to the origin that is associated with this cache behavior"
 }
 
@@ -138,11 +152,13 @@ variable "cors_expose_headers" {
 }
 
 variable "cors_max_age_seconds" {
+  type        = number
   default     = "3600"
   description = "Time in seconds that browser can cache the response for S3 bucket"
 }
 
 variable "forward_cookies" {
+  type        = string
   default     = "none"
   description = "Time in seconds that browser can cache the response for S3 bucket"
 }
@@ -154,11 +170,13 @@ variable "forward_header_values" {
 }
 
 variable "price_class" {
+  type        = string
   default     = "PriceClass_100"
   description = "Price class for this distribution: `PriceClass_All`, `PriceClass_200`, `PriceClass_100`"
 }
 
 variable "viewer_protocol_policy" {
+  type        = string
   description = "allow-all, redirect-to-https"
   default     = "redirect-to-https"
 }
@@ -176,22 +194,26 @@ variable "cached_methods" {
 }
 
 variable "default_ttl" {
+  type        = number
   default     = "60"
   description = "Default amount of time (in seconds) that an object is in a CloudFront cache"
 }
 
 variable "min_ttl" {
+  type        = number
   default     = "0"
   description = "Minimum amount of time that you want objects to stay in CloudFront caches"
 }
 
 variable "max_ttl" {
+  type        = number
   default     = "31536000"
   description = "Maximum amount of time (in seconds) that an object is in a CloudFront cache"
 }
 
 variable "geo_restriction_type" {
   # e.g. "whitelist"
+  type        = string
   default     = "none"
   description = "Method that use to restrict distribution of your content by country: `none`, `whitelist`, or `blacklist`"
 }
@@ -205,21 +227,19 @@ variable "geo_restriction_locations" {
 }
 
 variable "parent_zone_id" {
+  type        = string
   default     = ""
   description = "ID of the hosted zone to contain this record  (or specify `parent_zone_name`)"
 }
 
 variable "parent_zone_name" {
+  type        = string
   default     = ""
   description = "Name of the hosted zone to contain this record (or specify `parent_zone_id`)"
 }
 
-variable "null" {
-  description = "an empty string"
-  default     = ""
-}
-
 variable "static_s3_bucket" {
+  type        = string
   description = <<DOC
 aws-cli is a bucket owned by amazon that will perminantly exist.
 It allows for the data source to be called during the destruction process without failing.
@@ -248,7 +268,7 @@ variable "custom_error_response" {
 }
 
 variable "evaluate_target_health" {
-  default     = "false"
+  type        = bool
+  default     = false
   description = "Set to true if you want Route 53 to determine whether to respond to DNS queries"
 }
-
