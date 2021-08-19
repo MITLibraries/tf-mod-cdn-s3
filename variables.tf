@@ -238,12 +238,6 @@ variable "parent_zone_name" {
   description = "Name of the hosted zone to contain this record (or specify `parent_zone_id`)"
 }
 
-variable "null" {
-  type        = string
-  description = "an empty string"
-  default     = ""
-}
-
 variable "static_s3_bucket" {
   type        = string
   description = <<DOC

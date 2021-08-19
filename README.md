@@ -75,7 +75,6 @@ Currently have logging and SSL disabled.
 | min\_ttl | Minimum amount of time that you want objects to stay in CloudFront caches | `number` | `"0"` | no |
 | minimum\_protocol\_version | Cloudfront TLS minimum protocol version | `string` | `"TLSv1"` | no |
 | name | Name  (e.g. `bastion` or `app`) | `string` | n/a | yes |
-| null | an empty string | `string` | `""` | no |
 | origin\_bucket | Name of S3 bucket | `string` | `""` | no |
 | origin\_force\_destroy | Delete all objects from the bucket  so that the bucket can be destroyed without error (e.g. `true` or `false`) | `bool` | `"false"` | no |
 | origin\_path | An optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin. It must begin with a /. Do not add a / at the end of the path. | `string` | `""` | no |
