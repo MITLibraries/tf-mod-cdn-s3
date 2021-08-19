@@ -57,7 +57,7 @@ variable "origin_path" {
 
 variable "origin_force_destroy" {
   type        = bool
-  default     = "false"
+  default     = false
   description = "Delete all objects from the bucket  so that the bucket can be destroyed without error (e.g. `true` or `false`)"
 }
 
@@ -69,13 +69,13 @@ variable "bucket_domain_format" {
 
 variable "compress" {
   type        = bool
-  default     = "false"
+  default     = false
   description = "Compress content for web requests that include Accept-Encoding: gzip in the request header"
 }
 
 variable "is_ipv6_enabled" {
   type        = bool
-  default     = "true"
+  default     = true
   description = "State of CloudFront IPv6"
 }
 
@@ -93,7 +93,7 @@ variable "comment" {
 
 variable "log_include_cookies" {
   type        = bool
-  default     = "false"
+  default     = false
   description = "Include cookies in access logs"
 }
 
@@ -123,7 +123,7 @@ variable "log_expiration_days" {
 
 variable "forward_query_string" {
   type        = bool
-  default     = "false"
+  default     = false
   description = "Forward query strings to the origin that is associated with this cache behavior"
 }
 
@@ -269,6 +269,6 @@ variable "custom_error_response" {
 
 variable "evaluate_target_health" {
   type        = bool
-  default     = "false"
+  default     = false
   description = "Set to true if you want Route 53 to determine whether to respond to DNS queries"
 }
